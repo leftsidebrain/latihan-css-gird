@@ -18,6 +18,7 @@ body {
 .container {
   display: grid;
   gap: 10px;
+  padding-bottom: 15px;
 }
 
 /* Header */
@@ -149,6 +150,47 @@ body {
   font-size: 0.9em;
 }
 
+/* services */
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.service {
+  background-color: white;
+  padding: 15px;
+  text-align: center;
+  border: 1px solid rgb(230, 224, 224);
+  border-radius: 3px;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+}
+
+.service h3 {
+  font-size: 1.5em;
+}
+
+.service p {
+  font-weight: 200;
+  letter-spacing: 1px;
+  font-size: 0.8em;
+}
+
+/* gallery */
+
+.gallery {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 5px;
+}
+
+.gallery h2 {
+  grid-column: 1/-1;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
 /* responsif break point */
 @media (max-width: 1024px) {
   .menu {
@@ -207,5 +249,15 @@ body {
     display: flex;
   }
 }
-@media (max-width: 700px) {
+@media (max-width: 600px) {
+  .body {
+    margin: 15px;
+  }
+
+  .header {
+    grid-template-areas:
+      "hero"
+      "feature-1"
+      "feature-2";
+  }
 }
