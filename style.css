@@ -8,7 +8,7 @@ img {
 }
 
 body {
-  background-color: rgb(rgb(179, 48, 48), green, blue);
+  background-color: rgb(69, 130, 165);
   font-size: 18px;
   font-family: "Oswald", Arial, Helvetica, sans-serif;
   margin: 50px;
@@ -75,6 +75,57 @@ body {
   align-items: center;
 }
 
+/* menu Humberger */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  height: 20px;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+}
+
+.menu-toggle input {
+  position: absolute;
+  width: 40px;
+  height: 28px;
+  left: -5px;
+  top: -5px;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background-color: rgb(0, 0, 0);
+  border-radius: 3px;
+  transition: all 0.5s;
+}
+
+/* hamburge menu animasi */
+.menu-toggle span:nth-child(2) {
+  transform-origin: 0 0;
+}
+.menu-toggle span:nth-child(4) {
+  transform-origin: 0 100%;
+}
+
+.menu-toggle input:checked ~ span:nth-child(2) {
+  background-color: white;
+  transform: rotate(45deg) translate(-1px, -1px);
+}
+
+.menu-toggle input:checked ~ span:nth-child(4) {
+  background-color: white;
+  transform: rotate(-45deg) translate(-1px, 0);
+}
+.menu-toggle input:checked ~ span:nth-child(3) {
+  transform: scale(0);
+}
+
 .menu .brand {
   font-size: 1.3em;
   color: #333;
@@ -124,7 +175,37 @@ body {
     justify-content: center;
   }
 }
-@media (max-width: 768) {
+@media (max-width: 768px) {
+  .menu {
+    order: -1;
+    justify-items: end;
+  }
+
+  .menu ul {
+    display: flex;
+    position: absolute;
+    right: 0;
+    flex-direction: column;
+    top: 0;
+    height: 100vh;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: black;
+    z-index: 1;
+    width: 100%;
+    transform: translateY(-100%);
+    transition: all 1s;
+    opacity: 0;
+  }
+
+  .menu ul.slide {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
 }
-@media (max-width: 700) {
+@media (max-width: 700px) {
 }
